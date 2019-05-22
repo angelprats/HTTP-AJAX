@@ -1,4 +1,5 @@
 import React from 'react';
+import Friend from './Friend'
 
 class FriendForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,16 @@ class FriendForm extends React.Component {
         name: '',
         email: ''
       }
+
     }
+
+  }
+  render() {
+    return (
+      <div>
+
+      </div>
+    )
   }
 }
 
