@@ -16,7 +16,7 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3333/items")
+      .get("http://localhost:5000/friends")
       .then(response => this.setState({ friends: response.data }))
       .catch(err => console.log(err));
   }
@@ -25,7 +25,7 @@ class App extends React.Component {
     return (
       <div>
         <div className='friend-form' />
-        <FriendForm friends={this.state.friends} componentDidMount={this.componentDidMount} />
+        <FriendForm friends={this.state.friends} />
         {this.state.friends.map(friend => (
           <Friend friend={friend} />
         ))}

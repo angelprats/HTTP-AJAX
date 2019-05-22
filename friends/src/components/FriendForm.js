@@ -1,5 +1,8 @@
 import React from 'react';
-import Friend from './Friend'
+import Friend from './Friend';
+
+
+
 
 class FriendForm extends React.Component {
   constructor(props) {
@@ -18,7 +21,12 @@ class FriendForm extends React.Component {
   render() {
     return (
       <div>
-
+        <form>
+          <input placeholder="name" id="name" type="text" />
+          <input placeholder="number" id="email" type="email" />
+          <input placeholder="age" id="age" type="number" />
+          <button type="submit">Submit</button>
+        </form>
       </div>
     )
   }
