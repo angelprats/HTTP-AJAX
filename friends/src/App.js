@@ -10,7 +10,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      friends: []
+      friends: [],
+      friend: {
+        age: 0,
+        name: '',
+        email: ''
+      }
     };
   }
 
@@ -30,18 +35,22 @@ class App extends React.Component {
         this.setState({
           friends: res.data
         })
-          .catch(err => {
-            console.log(err)
-          });
       })
+      .catch(err => {
+        console.log(err)
+      });
+
   }
+
+
 
 
   render() {
     return (
       <div>
         <div className='friend-form' />
-        <FriendForm friends={this.state.friends}
+        <FriendForm
+          friend={this.state.friend}
           addFriend={this.addFriend}
         />
         {this.state.friends.map(friend => (
