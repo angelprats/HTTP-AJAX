@@ -29,11 +29,7 @@ class FriendForm extends React.Component {
   }
 
   submitHandler = e => {
-    if (this.props.activeFriend) {
-      this.props.updateFriend(e, this.state.friend);
-    } else {
-      this.props.addFriend(e, this.state.friend);
-    }
+    this.props.addFriend(e, this.state.friend);
     this.setState({
       friend: {
         age: '',
@@ -46,7 +42,7 @@ class FriendForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
+        <form id="form" onSubmit={this.submitHandler}>
           <input placeholder="name" id="name" type="text" />
           <input placeholder="number" id="email" type="email" />
           <input placeholder="age" id="age" type="number" />

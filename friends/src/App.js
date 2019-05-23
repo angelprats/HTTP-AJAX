@@ -21,21 +21,29 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
-  deleteHandler = (id) => {
-    return () => {
-      axios.delete(`http://localhost:5000/friends/${id}`)
-        .then(response => this.setState({ friends: response.data }))
-        .catch(error => console.log(error));
-    }
-  }
 
+  addFriend = (event, friend) => {
+    event.preventDefault();
+    axios
+      .post("http://localhost:5000/friends", friend)
+      .then(res => {
+        this.setState({
+          friends: res.data
+        })
+          .catch(err => {
+            console.log(err)
+          });
+      })
+  }
 
 
   render() {
     return (
       <div>
         <div className='friend-form' />
-        <FriendForm friends={this.state.friends} />
+        <FriendForm friends={this.state.friends}
+          addFriend={this.addFriend}
+        />
         {this.state.friends.map(friend => (
           <Friend friend={friend} />
         ))}
