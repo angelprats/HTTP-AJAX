@@ -1,5 +1,5 @@
 import React from 'react';
-import FriendForm from './components/FriendForm'
+import FriendForm from './FriendForm'
 import Friend from './components/Friend'
 import axios from "axios";
 
